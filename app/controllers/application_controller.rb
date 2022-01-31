@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_tenant!
+  skip_before_action :authenticate_tenant!, :only => [:index]
+
 
      ##    philia defines a default max_tenants, invalid_tenant exception handling
      ##    but you can override these if you wish to handle directly
