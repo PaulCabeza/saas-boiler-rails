@@ -30,7 +30,7 @@ module Phil2
     #     Devise::PasswordsController.layout "sign"
     #   end   # Devise
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    # config.load_defaults 6.1
 
     # Configuration for the application, engines, and railties goes here.
     #
