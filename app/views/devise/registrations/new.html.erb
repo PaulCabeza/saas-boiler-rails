@@ -1,9 +1,14 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "form" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="form-group">
+  <h3>New Tenant Registration</h3>
+  <br>
     <%= fields_for( :tenant ) do |w| %>
       <%= w.text_field( :name, :class => "form-control", :placeholder => "Seller Organization", required: true) %>
-      <p class="help-block">unique name for your group or organization for the new account</p>
+      <p class="help-block"><small>Unique name for your group or organization for the new account</small></p>
+      <%= w.select :plan, options_for_select(Plan.options, params[:plan]), {}, required: true , class: 'form-control' %>
+      <p class="help-block"><small>Select the plan</small></p>
+
     <% end %>
     <div class="form-group clearfix">
       <%= f.text_field :email, :class => "form-control", :autofocus => true, :placeholder => "e-mail", required: true %>
@@ -19,6 +24,7 @@
     <% if ::Philia.use_recaptcha %>
       <%= recaptcha_tags %>
     <% end %>
-    <button type="submit" class="btn btn-lg btn-success btn-block" id="sign-up-button">Sign Up</button>
+    <br>
+    <button type="submit" class="btn btn-lg btn-primary btn-block" id="sign-up-button">Sign Up</button>
   </div>
 <% end %>
